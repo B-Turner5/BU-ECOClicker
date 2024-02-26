@@ -20,8 +20,8 @@ function incrementNumber() {
 function updateProgress(progressId) {
     var progressBar = document.getElementById(progressId);
     var currentWidth = parseInt(progressBar.style.width) || 0;
-    
-  
+    var increment = 10;
+    var newWidth = currentWidth + increment;
 
     if (newWidth > 100) {
         progressBar.style.width = '100%';
