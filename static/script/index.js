@@ -19,9 +19,16 @@ function incrementNumber() {
 
 function updateProgress(progressId) {
     var progressBar = document.getElementById(progressId);
-    var currentWidth = progressBar.style.width || '0%';
-    var newWidth = parseInt(currentWidth) + 10;
-    progressBar.style.width = newWidth > 100 ? '100%' : newWidth + '%';
+    var currentWidth = parseInt(progressBar.style.width) || 0;
+    
+  
+
+    if (newWidth > 100) {
+        progressBar.style.width = '100%';
+    } else {
+        progressBar.style.width = newWidth + '%';
+    }
 }
+
 
 setInterval(incrementNumber, speed);
