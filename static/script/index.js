@@ -1,7 +1,20 @@
-let count = 0
+let count = 0;
+var multiplier = 1;
+var speed = 1000;
+
 const clicker = document.getElementById('clicker');
-console.log(clicker)
+var countContainer = document.getElementById('countContainer');
+
+
 clicker.addEventListener('click', function () {
-    count += 1
-    console.log(count)
+    incrementNumber()
+    countContainer.innerHTML = count
 })
+
+function incrementNumber() {
+    count += multiplier;
+    console.log(count);
+    countContainer.innerHTML = count
+}
+
+setInterval(incrementNumber, speed);
