@@ -17,7 +17,7 @@ Next, install the packages in the virtual environment.
 pip install flask
 ```
 
-can alsi run this to activate it.
+can also run this to activate it.
 
 python app.py
 
