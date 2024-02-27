@@ -1,14 +1,22 @@
 let count = 0;
 let multiplier = 1;
+let cps = 1
+
 
 var countContainer = document.getElementById('countContainer');
 
 clicker = document.getElementById('clicker');
 
 function incrementNumber() {
-    count += multiplier;
+    count += multiplier * cps;
     countContainer.innerHTML = "£" + count
 }
+
+function updateCount(amount) {
+    count += amount * count; 
+    countContainer.innerHTML = "£" + count;
+}
+
 
 function updateProgress(progressId) {
     var progressBar = document.getElementById(progressId);
@@ -86,13 +94,10 @@ setInterval(incrementNumber, 1000);
 function LEDupgrade(){
     if (count >= 10) {
         count -= 5;
-        updateCount(0); // Update money count without incrementing
+        updateCount(0); 
+        multiplier = 2
     } else {
         alert("You don't have enough money to upgrade LED lights.");
     }
 };
 
-function updateCount(amount) {
-    count += amount * count; // Increment based on CPS
-    countContainer.innerHTML = "£" + count;
-}
