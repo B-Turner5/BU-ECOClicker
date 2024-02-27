@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .progress-bar {
     width: 200px;
     height: 20px;
@@ -54,6 +56,7 @@ section{
     left: 50%;
     transform: translateX(-50%);
     font-size: xx-large;
+    font-family: "Press Start 2P", sans-serif;
 }
 
 .turbine{
@@ -90,18 +93,8 @@ section{
     align-items: center;
 }
 
-@keyframes Turbine-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+body{
+    margin: 0;
+    font-family: "Press Start 2P", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-    .turbine {
-      animation: Turbine-spin infinite 3000ms linear;
-      transition: animation-duration 0.5s ease;
-    }
-}
+  

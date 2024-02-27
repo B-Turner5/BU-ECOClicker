@@ -1,40 +1,13 @@
 let count = 0;
-var multiplier = 1;
-var speed = 1000;
-let isClicked = false;
+let multiplier = 1;
 
-const clicker = document.getElementById('clicker');
 var countContainer = document.getElementById('countContainer');
 
-
-clicker.addEventListener('click', function () {
-    incrementNumber()
-    countContainer.innerHTML = count
-    increaseAnimationSpeed()
-})
-
-const turbine = document.querySelector('.turbine');
-
-function increaseAnimationSpeed() {
-    isClicked = true;
-    const currentAnimationDuration = parseFloat(getComputedStyle(turbine).animationDuration);
-    if (currentAnimationDuration > 0.01){
-        speed -= (speed/50)
-        turbine.style.animationDuration = (currentAnimationDuration * speed) + 'ms';
-    };
-    setTimeout(() => {
-        isclicked = false;
-    }, 5000)
-}
-
-function decreaseAnimationSpeed() {
-    // To Do at the end. If you want to.
-} 
+clicker = document.getElementById('clicker');
 
 function incrementNumber() {
     count += multiplier;
     countContainer.innerHTML = count
-    // decreaseAnimationSpeed()
 }
 
 function updateProgress(progressId) {
@@ -50,5 +23,48 @@ function updateProgress(progressId) {
     }
 }
 
+// JavaScript code for Spin Image on Click with Inertia
 
-setInterval(incrementNumber, speed);
+let speed = 2; // Base speed in degrees per frame (assuming 60 fps, this should be adjusted to achieve 120 degrees per second)
+let angle = 0; // Current angle
+let isSpinning = false; // Track if spinning
+let lastTimestamp = 0; // Last animation frame timestamp
+const image = document.getElementById('turbine'); // Reference to the image
+
+// Convert base speed to degrees per second assuming 60 frames per second
+const baseSpeedPerSecond = 20;
+const baseSpeedPerFrame = baseSpeedPerSecond / 60;
+
+// Increase speed on click and initialize lastTimestamp
+clicker.addEventListener('click', () => {
+    console.log("CLICK")
+    incrementNumber()
+    countContainer.innerHTML = count
+    if (!isSpinning) {
+        lastTimestamp = null; // Reset lastTimestamp on start
+        window.requestAnimationFrame(spin);
+        isSpinning = true;
+    }
+    speed += baseSpeedPerFrame; // Increase the speed with each click
+});
+
+function spin(timestamp) {
+    if (lastTimestamp === null) {
+        lastTimestamp = timestamp; // Initialize lastTimestamp on the first frame
+    }
+    const delta = (timestamp - lastTimestamp) / 1000; // Time since last frame in seconds
+
+    angle += (speed * delta) * 360; // Increase angle based on speed and time
+    image.style.transform = `rotate(${angle}deg)`; // Apply rotation, ensure continuous rotation
+
+    // Apply inertia by slightly reducing speed but never going below base speed
+    if (speed > baseSpeedPerFrame) {
+        speed *= 0.99; // Slow down if above base speed
+    }
+
+    window.requestAnimationFrame(spin); // Continue spinning
+
+    lastTimestamp = timestamp;
+}
+
+setInterval(incrementNumber, 1000);
