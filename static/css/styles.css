@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.progress-bar {
+.progress-bar1 {
     width: 80%;
     height: 20px;
     border: 1px solid #000;
@@ -11,7 +11,17 @@
     margin-left: auto;
     margin-right: auto;
 }
-
+.progress-bar2 {
+    width: 80%;
+    height: 20px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    margin-bottom: 20px; 
+    overflow: hidden; 
+    border-radius: 5px; 
+    margin-left: auto;
+    margin-right: auto;
+}
 .progress {
     width: 0%;
     height: 100%;
@@ -110,21 +120,22 @@ body{
     overflow: hidden;
 }
   
-#LED-upgrade-box {
+#upgrade-box {
     border: 5px solid black; 
     padding: 10px; 
     display: inline-block; 
     background-color: #8c5d3b;
     margin-top: 0;
+    min-width: 95%;
 }
 
-#LED-bio{
+#bio{
     font-size: 10px;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-#LED-upgrade{
+#upgrade{
     font-size: 18px;
     font-family: "Press Start 2P", sans-serif;
 }

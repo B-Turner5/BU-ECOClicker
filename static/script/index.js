@@ -17,12 +17,15 @@ function updateCount(amount) {
     countContainer.innerHTML = "£" + count;
 }
 
-function updateProgress(progress) {
-    var progressBar = document.getElementById('progress1');
-    progressBar.style.width = progress + '%';
+function updateProgress1(progress) {
+    var progressBar1 = document.getElementById('progress1');
+    progressBar1.style.width = progress + '%';
 }
 
-
+function updateProgress2(progress) {
+    var progressBar2 = document.getElementById('progress2');
+    progressBar2.style.width = progress + '%';
+}
 
 
 
@@ -94,10 +97,20 @@ function LEDupgrade(){
         count -= 5;
         updateCount(0); 
         multiplier = 2;
-        updateProgress(100);
+        updateProgress1(100);
     } else {
         alert("You don't have enough money to upgrade LED lights.");
     }
     
 };
-
+function GlazingUpgrade(){
+    if (count >= 10) {
+        count -= 5;
+        updateCount(0); 
+        multiplier = 2;
+        updateProgress2(100);
+    } else {
+        alert("You don't have enough money to upgrade LED lights.");
+    }
+    
+};
