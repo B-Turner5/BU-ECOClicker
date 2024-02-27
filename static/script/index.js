@@ -82,3 +82,12 @@ async function swapBlades() {
 }
 
 setInterval(incrementNumber, 1000);
+
+function LEDupgrade(){
+    if (count >= 10) {
+        count -= 5;
+        updateMoney(0); // Update money count without incrementing
+    } else {
+        alert("You don't have enough money to upgrade LED lights.");
+    }
+};
