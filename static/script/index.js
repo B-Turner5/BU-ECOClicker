@@ -16,13 +16,13 @@ function updateCount(amount) {
     count += amount * count; 
     countContainer.innerHTML = "£" + count;
 }
-// Example function to update progress bar
+
 function updateProgress(progress) {
     var progressBar = document.getElementById('progress1');
     progressBar.style.width = progress + '%';
 }
 
-// Usage: updateProgress(75); // Sets progress to 75%
+
 
 
 
