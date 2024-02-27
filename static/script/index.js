@@ -7,7 +7,7 @@ clicker = document.getElementById('clicker');
 
 function incrementNumber() {
     count += multiplier;
-    countContainer.innerHTML = count
+    countContainer.innerHTML = "£" + count
 }
 
 function updateProgress(progressId) {
@@ -39,7 +39,8 @@ const baseSpeedPerFrame = baseSpeedPerSecond / 60;
 clicker.addEventListener('click', () => {
     console.log("CLICK")
     incrementNumber()
-    countContainer.innerHTML = count
+    swapBlades()
+    countContainer.innerHTML = "£" + count
     if (!isSpinning) {
         lastTimestamp = null; // Reset lastTimestamp on start
         window.requestAnimationFrame(spin);
@@ -65,6 +66,19 @@ function spin(timestamp) {
     window.requestAnimationFrame(spin); // Continue spinning
 
     lastTimestamp = timestamp;
+}
+
+var sleepSetTimeout_ctrl;
+
+function sleep(ms) {
+    clearInterval(sleepSetTimeout_ctrl);
+    return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
+}
+
+async function swapBlades() {
+    image.src = `static/assets/windblades.png`
+    await sleep(200)
+    image.src = 'static/assets/blades.png'
 }
 
 setInterval(incrementNumber, 1000);
