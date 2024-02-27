@@ -10,21 +10,22 @@
 
     <body>
         <section>
-            <article>
+            <article class="column">
 
-                <button id="clicker">
-                    <h1 id="countContainer">0</h1>  
+                <button id="clicker" class="clicker">
+                    <h1 id="countContainer">0</h1>
+                    <img src="{{ url_for('static', filename='assets/blades.png')}}" alt = "Click me to generate points!" class="turbine">
                 </button>
     
             </article>
     
-            <article>
+            <article class="map">
     
-                <img href="{{ url_for('static', filename='assets\Campus.png')}} " alt = "University Campus Map, a placeholder.">
+                <img style="margin-left:-56vh; margin-top: -10vh" src="{{ url_for('static', filename='assets/Campus.png')}}" alt = "University Campus Map, a placeholder.">
             
             </article>
     
-            <article>
+            <article class="column">
     
                 <div id="Poole GateWay">
                     <h1>Upgardes for Poole Gateway</h1>

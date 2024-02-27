@@ -17,4 +17,36 @@
 section{
     display: flex;
     flex-direction: row;
+    flex-basis: 0;
+}
+
+.column{
+    overflow: hidden;
+    width: 0;
+    flex-grow: 1;
+}
+
+.map{
+    overflow: hidden;
+    width: 0;
+    flex-grow: 5;
+}
+
+.clicker{
+    background-color: transparent;
+}
+
+@keyframes Turbine-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .turbine {
+      animation: Turbine-spin infinite 3s linear;
+    }
 }
