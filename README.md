@@ -14,7 +14,7 @@ Then, activate it.
 
 Next, install the packages in the virtual environment.
 ```
-pip install flask
+pip install -r requirements.txt
 ```
 
 can also run this to activate it.
