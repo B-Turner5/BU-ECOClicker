@@ -17,12 +17,8 @@ Next, install the packages in the virtual environment.
 pip install -r requirements.txt
 ```
 
-can also run this to activate it.
-
-python app.py
-
-to discard any changes that you make use this command in the terminal
-
+To discard any changes that you make, use this command in the terminal.
+```
 git reset --hard HEAD
-
+```
 

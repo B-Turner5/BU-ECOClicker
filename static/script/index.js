@@ -1,6 +1,7 @@
 let count = 0;
 var multiplier = 1;
 var speed = 1000;
+let isClicked = false;
 
 const clicker = document.getElementById('clicker');
 var countContainer = document.getElementById('countContainer');
@@ -9,7 +10,23 @@ var countContainer = document.getElementById('countContainer');
 clicker.addEventListener('click', function () {
     incrementNumber()
     countContainer.innerHTML = count
+    increaseAnimationSpeed()
 })
+
+const turbine = document.querySelector('.turbine');
+
+function increaseAnimationSpeed() {
+    isClicked = true;
+    const currentAnimationDuration = parseFloat(getComputedStyle(turbine).animationDuration);
+    if (currentAnimationDuration > 0.01){
+        speed -= (speed/50)
+        turbine.style.animationDuration = (currentAnimationDuration * speed) + 'ms';
+    };
+    speed = currentAnimationDuration;
+    setTimeout(() => {
+        isclicked = false;
+    }, currentAnimationDuration)
+}
 
 function incrementNumber() {
     count += multiplier;
