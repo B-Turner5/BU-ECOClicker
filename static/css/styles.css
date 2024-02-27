@@ -137,10 +137,10 @@ body{
 
 #upgradeable-building{
     #upgradeable-building {
-        max-width: calc(100% - 20px); /* Ensure it doesn't exceed the width of the page minus 20px for margins */
-        overflow: hidden; /* Hide the overflow text if it exceeds the width */
-        white-space: nowrap; /* Prevent wrapping the text to a new line */
-        text-overflow: ellipsis; /* Show an ellipsis (...) if the text overflows */
+        max-width: calc(100% - 20px); 
+        overflow: hidden; 
+        white-space: nowrap; 
+        text-overflow: ellipsis; 
     }
     
 }
