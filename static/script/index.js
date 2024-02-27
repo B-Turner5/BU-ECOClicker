@@ -16,20 +16,18 @@ function updateCount(amount) {
     count += amount * count; 
     countContainer.innerHTML = "£" + count;
 }
-
-
-function updateProgress(progressId) {
-    var progressBar = document.getElementById(progressId);
-    var currentWidth = parseInt(progressBar.style.width) || 0;
-    var increment = 10;
-    var newWidth = currentWidth + increment;
-
-    if (newWidth > 100) {
-        progressBar.style.width = '100%';
-    } else {
-        progressBar.style.width = newWidth + '%';
-    }
+// Example function to update progress bar
+function updateProgress(progress) {
+    var progressBar = document.getElementById('progress1');
+    progressBar.style.width = progress + '%';
 }
+
+// Usage: updateProgress(75); // Sets progress to 75%
+
+
+
+
+
 
 // JavaScript code for Spin Image on Click with Inertia
 
@@ -95,9 +93,11 @@ function LEDupgrade(){
     if (count >= 10) {
         count -= 5;
         updateCount(0); 
-        multiplier = 2
+        multiplier = 2;
+        updateProgress(100);
     } else {
         alert("You don't have enough money to upgrade LED lights.");
     }
+    
 };
 
