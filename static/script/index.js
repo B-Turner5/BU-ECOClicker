@@ -22,16 +22,19 @@ function increaseAnimationSpeed() {
         speed -= (speed/50)
         turbine.style.animationDuration = (currentAnimationDuration * speed) + 'ms';
     };
-    speed = currentAnimationDuration;
     setTimeout(() => {
         isclicked = false;
-    }, currentAnimationDuration)
+    }, 5000)
 }
+
+function decreaseAnimationSpeed() {
+    // To Do at the end. If you want to.
+} 
 
 function incrementNumber() {
     count += multiplier;
-    console.log(count);
     countContainer.innerHTML = count
+    // decreaseAnimationSpeed()
 }
 
 function updateProgress(progressId) {
