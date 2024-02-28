@@ -2,6 +2,27 @@ let count = 0;
 let multiplier = 1;
 let cps = 1
 
+// Defining progress for each thingy.
+class Building {
+    constructor(led, solar, boiler, gshp, insulation) {
+        this.ledBulbLevel = 0
+        this.ledBulbPrices = [25, 30, 35, 40, 45, 50, 60, 75, 100, 125, 150, 175, 200, 250, 300, 350, 500, 600, 700, 1200]
+        this.solarPanelLevel = 0
+        this.solarPanelPrice = [2500, 3000, 3500, 4000, 4500, 5000, 6000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 35000, 50000, 60000, 70000, 120000]
+        this.boilerUpgrade = false
+        this.boilerPrice = 15000
+        this.groundSourceHeatPumpsUpgrade = false
+        this.groundSourceHeatPumpsPrice = 50000
+        this.insulationUpgrade = false
+        this.insulationPrice = 120000
+    }
+}
+
+const kimmeridge = new Building(0, 0, false, false, false)
+const fusion = new Building(20, 20, false, true, false)
+const dorset = new Building(0, 0, false, false, false)
+const pgb = new Building(20, 20, false, false, false)
+
 
 var countContainer = document.getElementById('countContainer');
 
@@ -27,10 +48,15 @@ function updateProgress2(progress) {
     progressBar2.style.width = progress + '%';
 }
 
+function updateProgress2(progress) {
+    var progressBar2 = document.getElementById('progress2');
+    progressBar2.style.width = progress + '%';
+}
 
-
-
-
+function updateProgress2(progress) {
+    var progressBar2 = document.getElementById('progress2');
+    progressBar2.style.width = progress + '%';
+}
 
 // JavaScript code for Spin Image on Click with Inertia
 
@@ -97,7 +123,7 @@ function LEDupgrade(){
         count -= 5;
         updateCount(0); 
         multiplier = 2;
-        updateProgress1(100);
+        updateProgress1(5);
     } else {
         alert("You don't have enough money to upgrade LED lights.");
     }
