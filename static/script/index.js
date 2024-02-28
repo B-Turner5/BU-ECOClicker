@@ -123,7 +123,8 @@ function LEDupgrade(){
         count -= 5;
         updateCount(0); 
         multiplier = 2;
-        updateProgress1(5);
+
+        updateProgress1((*5)+5);
     } else {
         alert("You don't have enough money to upgrade LED lights.");
     }
