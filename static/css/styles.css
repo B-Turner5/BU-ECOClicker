@@ -22,7 +22,18 @@
     margin-left: auto;
     margin-right: auto;
 }
-    .progress-bar3 {
+.progress-bar3 {
+    width: 80%;
+    height: 20px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    margin-bottom: 20px; 
+    overflow: hidden; 
+    border-radius: 5px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress-bar4 {
         width: 80%;
         height: 20px;
         border: 1px solid #000;
@@ -32,17 +43,6 @@
         border-radius: 5px; 
         margin-left: auto;
         margin-right: auto;
-    }
-    .progress-bar4 {
-            width: 80%;
-            height: 20px;
-            border: 1px solid #000;
-            margin-bottom: 10px;
-            margin-bottom: 20px; 
-            overflow: hidden; 
-            border-radius: 5px; 
-            margin-left: auto;
-            margin-right: auto;
 }
 .progress-bar5 {
     width: 80%;
@@ -76,7 +76,7 @@ section{
     flex-grow: 3;
     position: sticky;
     display: block;
-    height: 100vh
+    height: 100vh;
 }
 
 .upgrades{
@@ -100,6 +100,7 @@ section{
     width: 100%;
     height: 100%;
     border: none;
+    user-select: none;
 }
 
 .countContainer{
@@ -122,6 +123,7 @@ section{
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+    user-select: none;
 }
 
 .base{
@@ -133,6 +135,7 @@ section{
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
+    user-select: none;
 }
 
 .turbineContainer{
@@ -143,6 +146,7 @@ section{
     pointer-events: none;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 body{
@@ -167,7 +171,7 @@ body{
     margin-bottom: 0;
 }
 
-#upgrade{
+.upgrade{
     font-size: 18px;
     font-family: "Press Start 2P", sans-serif;
 }

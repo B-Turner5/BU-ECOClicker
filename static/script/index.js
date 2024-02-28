@@ -5,15 +5,15 @@ let cps = 1
 // Defining progress for each thingy.
 class Building {
     constructor(led, solar, boiler, gshp, insulation) {
-        this.ledBulbLevel = 0
-        this.ledBulbPrices = [25, 30, 35, 40, 45, 50, 60, 75, 100, 125, 150, 175, 200, 250, 300, 350, 500, 600, 700, 1200]
-        this.solarPanelLevel = 0
+        this.ledBulbLevel = led
+        this.ledBulbPrices = [0, 25, 30, 35, 40, 45, 50, 60, 75, 100, 125, 150, 175, 200, 250, 300, 350, 500, 600, 700, 1200]
+        this.solarPanelLevel = solar
         this.solarPanelPrice = [2500, 3000, 3500, 4000, 4500, 5000, 6000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 35000, 50000, 60000, 70000, 120000]
-        this.boilerUpgrade = false
+        this.boilerUpgrade = boiler
         this.boilerPrice = 15000
-        this.groundSourceHeatPumpsUpgrade = false
+        this.groundSourceHeatPumpsUpgrade = gshp
         this.groundSourceHeatPumpsPrice = 50000
-        this.insulationUpgrade = false
+        this.insulationUpgrade = insulation
         this.insulationPrice = 120000
     }
 }
@@ -30,12 +30,12 @@ clicker = document.getElementById('clicker');
 
 function incrementNumber() {
     count += multiplier * cps;
-    countContainer.innerHTML = "£" + count
+    countContainer.innerHTML = "£" + count.toFixed(2)
 }
 
 function updateCount(amount) {
     count += amount * count; 
-    countContainer.innerHTML = "£" + count;
+    countContainer.innerHTML = "£" + count.toFixed(2);
 }
 
 function updateProgress1(progress) {
@@ -79,7 +79,6 @@ clicker.addEventListener('click', () => {
     console.log("CLICK")
     incrementNumber()
     swapBlades()
-    countContainer.innerHTML = "£" + count
     if (!isSpinning) {
         lastTimestamp = null; // Reset lastTimestamp on start
         window.requestAnimationFrame(spin);
@@ -123,17 +122,23 @@ async function swapBlades() {
 setInterval(incrementNumber, 1000);
 
 function LEDupgrade(){
-    if (count >= 10) {
-        count -= 5;
-        updateCount(0); 
-        multiplier = 2;
+    if (kimmeridge.ledBulbLevel == 20){
+        console.log(kimmeridge.ledBulbLevel)
+        maxLevel(1);
+    } else if (count >= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]) {
+        count -= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]
+        updateCount(0);
+        multiplier += ((kimmeridge.ledBulbLevel + 1) / 12.5);
+        console.log(multiplier)
+        updateProgress1((kimmeridge.ledBulbLevel*5)+5);
+        kimmeridge.ledBulbLevel += 1 
 
-        updateProgress1((*5)+5);
-    } else {
-        alert("You don't have enough money to upgrade LED lights.");
     }
-    
+    else {
+        insufficientFunds(1);
+    }    
 };
+
 function SolarUpgrade(){
     if (count >= 10) {
         count -= 5;
@@ -141,7 +146,7 @@ function SolarUpgrade(){
         multiplier = 2;
         updateProgress2(100);
     } else {
-        alert("You don't have enough money to upgrade LED lights.");
+        insufficientFunds(2);
     }
     
 };
@@ -152,7 +157,7 @@ function BoilerUpgrade(){
         multiplier = 2;
         updateProgress3(100);
     } else {
-        alert("You don't have enough money to upgrade boilers.");
+        insufficientFunds(3);
     }
     
 };
@@ -164,52 +169,30 @@ function InsulationUpgrade(){
         multiplier = 2;
         updateProgress4(100);
     } else {
-        alert("You don't have enough money to upgrade boilers.");
-    }
-    
-};
-function GSHPUpgrade(){
-    if (count >= 10) {
-        count -= 5;
-        updateCount(0); 
-        multiplier = 2;
-        updateProgress5(100);
-    } else {
-        alert("You don't have enough money to upgrade boilers.");
+        insufficientFunds(4);
     }
     
 };
 
-// Grab the image container
-const imageContainer = document.getElementById('image-container');
+const tempFunds = {};
+const tempLevel = {};
 
-// Track if dragging is active, and initial mouse positions
-let isDragging = false, startX, startY;
+async function insufficientFunds(id){
+    const box = document.getElementById("upgrade" + id)
+    if (!tempFunds[id-1]) {
+        tempFunds[id-1] = box.innerHTML;
+    }    
+    box.innerHTML = "Insufficient Funds."
+    await sleep(500)
+    box.innerHTML = tempFunds[id-1]
+}
 
-// Start dragging
-imageContainer.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    startX = e.pageX - this.offsetLeft; // Initial mouse X position
-    startY = e.pageY - this.offsetTop; // Initial mouse Y position
-    this.style.cursor = 'grabbing'; // Change cursor to grabbing
-    e.preventDefault(); // Prevents the default image drag
-});
-
-// Stop dragging
-document.addEventListener('mouseup', function() {
-    isDragging = false;
-    imageContainer.style.cursor = 'grab'; // Change cursor back to grab
-});
-
-// Handle mouse move for dragging
-document.addEventListener('mousemove', function(e) {
-    if (!isDragging) return; // Exit if not dragging
-    const x = e.pageX - imageContainer.offsetLeft; // Current mouse X
-    const y = e.pageY - imageContainer.offsetTop; // Current mouse Y
-    const walkX = (x - startX); // Horizontal move distance
-    const walkY = (y - startY); // Vertical move distance
-    imageContainer.scrollLeft -= walkX; // Scroll horizontally
-    imageContainer.scrollTop -= walkY; // Scroll vertically
-    startX = x; // Reset initial X to current X
-    startY = y; // Reset initial Y to current Y
-});
+async function maxLevel(id){
+    const box = document.getElementById("upgrade" + id)
+    if (!tempLevel[id-1]) {
+        tempLevel[id-1] = box.innerHTML;
+    }    
+    box.innerHTML = "Already Max Level."
+    await sleep(500)
+    box.innerHTML = tempLevel[id-1]
+}
