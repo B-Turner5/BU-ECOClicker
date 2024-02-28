@@ -123,15 +123,14 @@ setInterval(incrementNumber, 1000);
 
 function LEDupgrade(){
     if (kimmeridge.ledBulbLevel == 20){
-        console.log(kimmeridge.ledBulbLevel)
         maxLevel(1);
     } else if (count >= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]) {
         count -= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]
         updateCount(0);
         multiplier += ((kimmeridge.ledBulbLevel + 1) / 12.5);
-        console.log(multiplier)
         updateProgress1((kimmeridge.ledBulbLevel*5)+5);
         kimmeridge.ledBulbLevel += 1 
+        updateUpgradeText(1, kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1])
 
     }
     else {
@@ -196,6 +195,11 @@ async function maxLevel(id){
     await sleep(500)
     box.innerHTML = tempLevel[id-1]
 };
+
+async function updateUpgradeText(id, price){
+    const box = document.getElementById("upgrade" + id)
+    box.innerHTML = `LED Lightbulb Upgrade: £${price}`
+}
 
 // Grab the image container
 const imageContainer = document.getElementById('image-container');
