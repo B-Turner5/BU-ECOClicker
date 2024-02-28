@@ -57,9 +57,9 @@ function updateProgress4(progress) {
     progressBar4.style.width = progress + '%';
 }
 
-function updateProgress2(progress) {
-    var progressBar2 = document.getElementById('progress2');
-    progressBar2.style.width = progress + '%';
+function updateProgress5(progress) {
+    var progressBar5 = document.getElementById('progress5');
+    progressBar5.style.width = progress + '%';
 }
 
 // JavaScript code for Spin Image on Click with Inertia
@@ -163,6 +163,17 @@ function InsulationUpgrade(){
         updateCount(0); 
         multiplier = 2;
         updateProgress4(100);
+    } else {
+        alert("You don't have enough money to upgrade boilers.");
+    }
+    
+};
+function GSHPUpgrade(){
+    if (count >= 10) {
+        count -= 5;
+        updateCount(0); 
+        multiplier = 2;
+        updateProgress5(100);
     } else {
         alert("You don't have enough money to upgrade boilers.");
     }
