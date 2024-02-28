@@ -26,7 +26,10 @@ function updateProgress2(progress) {
     var progressBar2 = document.getElementById('progress2');
     progressBar2.style.width = progress + '%';
 }
-
+function updateProgress3(progress) {
+    var progressBar3 = document.getElementById('progress3');
+    progressBar3.style.width = progress + '%';
+}
 
 
 
@@ -111,6 +114,17 @@ function SolarUpgrade(){
         updateProgress2(100);
     } else {
         alert("You don't have enough money to upgrade LED lights.");
+    }
+    
+};
+function BoilerUpgrade(){
+    if (count >= 10) {
+        count -= 5;
+        updateCount(0); 
+        multiplier = 2;
+        updateProgress3(100);
+    } else {
+        alert("You don't have enough money to upgrade boilers.");
     }
     
 };
