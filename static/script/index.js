@@ -31,6 +31,11 @@ function updateProgress3(progress) {
     progressBar3.style.width = progress + '%';
 }
 
+function updateProgress4(progress) {
+    var progressBar4 = document.getElementById('progress4');
+    progressBar4.style.width = progress + '%';
+}
+
 
 
 
@@ -123,6 +128,18 @@ function BoilerUpgrade(){
         updateCount(0); 
         multiplier = 2;
         updateProgress3(100);
+    } else {
+        alert("You don't have enough money to upgrade boilers.");
+    }
+    
+};
+
+function InsulationUpgrade(){
+    if (count >= 10) {
+        count -= 5;
+        updateCount(0); 
+        multiplier = 2;
+        updateProgress4(100);
     } else {
         alert("You don't have enough money to upgrade boilers.");
     }
