@@ -195,4 +195,38 @@ async function maxLevel(id){
     box.innerHTML = "Already Max Level."
     await sleep(500)
     box.innerHTML = tempLevel[id-1]
-}
+};
+
+// Grab the image container
+const imageContainer = document.getElementById('image-container');
+
+// Track if dragging is active, and initial mouse positions
+let isDragging = false, startX, startY;
+
+// Start dragging
+imageContainer.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    startX = e.pageX - this.offsetLeft; // Initial mouse X position
+    startY = e.pageY - this.offsetTop; // Initial mouse Y position
+    this.style.cursor = 'grabbing'; // Change cursor to grabbing
+    e.preventDefault(); // Prevents the default image drag
+});
+
+// Stop dragging
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+    imageContainer.style.cursor = 'grab'; // Change cursor back to grab
+});
+
+// Handle mouse move for dragging
+document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return; // Exit if not dragging
+    const x = e.pageX - imageContainer.offsetLeft; // Current mouse X
+    const y = e.pageY - imageContainer.offsetTop; // Current mouse Y
+    const walkX = (x - startX); // Horizontal move distance
+    const walkY = (y - startY); // Vertical move distance
+    imageContainer.scrollLeft -= walkX; // Scroll horizontally
+    imageContainer.scrollTop -= walkY; // Scroll vertically
+    startX = x; // Reset initial X to current X
+    startY = y; // Reset initial Y to current Y
+});
