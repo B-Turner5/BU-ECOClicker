@@ -18,13 +18,14 @@ def index():
 def connect():
     return render_template('connect.html')
 
+# Adds clicks collected from endpoint into a queue
 @app.route('/api/click', methods=['POST'])
 def registerClick():
     data = request.data
     clickqueue.append("Click!")
-    print(clickqueue)
     return jsonify({'message': 'Click!'})
 
+# Ensures that clicks aren't repeated by clearing the queue and passing the current queue through.
 @app.route('/api/clicks', methods=['GET'])
 def getClick():
     global clickqueue

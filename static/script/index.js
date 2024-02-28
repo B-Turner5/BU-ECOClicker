@@ -225,7 +225,7 @@ document.addEventListener('mousemove', function(e) {
     startY = y; // Reset initial Y to current Y
 });
 
-// 
+// Takes in the array and for each element, spins once.
 async function detectMobileInput(){
     const result = await fetch("/api/clicks")
     const clicks = await result.json();
