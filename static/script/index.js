@@ -57,9 +57,9 @@ function updateProgress4(progress) {
     progressBar4.style.width = progress + '%';
 }
 
-function updateProgress2(progress) {
-    var progressBar2 = document.getElementById('progress2');
-    progressBar2.style.width = progress + '%';
+function updateProgress5(progress) {
+    var progressBar5 = document.getElementById('progress5');
+    progressBar5.style.width = progress + '%';
 }
 
 // JavaScript code for Spin Image on Click with Inertia
