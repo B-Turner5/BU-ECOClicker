@@ -76,6 +76,10 @@ const baseSpeedPerFrame = baseSpeedPerSecond / 60;
 
 // Increase speed on click and initialize lastTimestamp
 clicker.addEventListener('click', () => {
+    initSpin()
+});
+
+function initSpin(){
     console.log("CLICK")
     incrementNumber()
     swapBlades()
@@ -85,7 +89,7 @@ clicker.addEventListener('click', () => {
         isSpinning = true;
     }
     speed += baseSpeedPerFrame; // Increase the speed with each click
-});
+}
 
 function spin(timestamp) {
     if (lastTimestamp === null) {
@@ -234,3 +238,15 @@ document.addEventListener('mousemove', function(e) {
     startX = x; // Reset initial X to current X
     startY = y; // Reset initial Y to current Y
 });
+
+// 
+async function detectMobileInput(){
+    const result = await fetch("/api/clicks")
+    const clicks = await result.json();
+    for (item of clicks){
+        initSpin()
+    }
+}
+
+// Polling rate is currently set at 100ms.
+setInterval(detectMobileInput, 100)

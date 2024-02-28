@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang ="EN">
+
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
+        <link rel="stylesheet" type="text/css" hred="{{ url_for('static', filename='css/mobile.css')}}">
+        <title>ECOClicker</title>
+    </head>
+
+    <body>
+            <img src="{{ url_for('static', filename='assets/bg.png')}}" id="clicker" class="clicker">
+                <h1 class="countContainer" id="countContainer">£0</h1>
+            </img>
+            <div class="turbineContainer">
+                <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}" class="base">
+                <img src="{{ url_for('static', filename='assets/blades.png')}}" alt = "Click me to generate points!" id="turbine" class="turbine">
+            </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='script/mobile.js')}}"></script>
+</html>     
