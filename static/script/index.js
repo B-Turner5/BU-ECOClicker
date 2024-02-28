@@ -103,7 +103,7 @@ function LEDupgrade(){
     }
     
 };
-function GlazingUpgrade(){
+function SolarUpgrade(){
     if (count >= 10) {
         count -= 5;
         updateCount(0); 
