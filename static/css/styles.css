@@ -160,7 +160,7 @@ body{
     border: 5px solid black; 
     padding: 10px; 
     display: inline-block; 
-    background-color: #8c5d3b;
+    background: firebrick;
     margin-top: 0;
     min-width: 95%;
 }
