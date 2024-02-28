@@ -38,29 +38,15 @@ function updateCount(amount) {
     countContainer.innerHTML = "£" + count.toFixed(2);
 }
 
-function updateProgress1(progress) {
-    var progressBar1 = document.getElementById('progress1');
-    progressBar1.style.width = progress + '%';
+function updateProgress(progress, progressBarId) {
+    var progressBar = document.getElementById(progressBarId);
+    if (progressBar) {
+        progressBar.style.width = progress + '%';
+    } else {
+        console.error("Progress bar with id '" + progressBarId + "' not found.");
+    }
 }
 
-function updateProgress2(progress) {
-    var progressBar2 = document.getElementById('progress2');
-    progressBar2.style.width = progress + '%';
-}
-function updateProgress3(progress) {
-    var progressBar3 = document.getElementById('progress3');
-    progressBar3.style.width = progress + '%';
-}
-
-function updateProgress4(progress) {
-    var progressBar4 = document.getElementById('progress4');
-    progressBar4.style.width = progress + '%';
-}
-
-function updateProgress5(progress) {
-    var progressBar5 = document.getElementById('progress5');
-    progressBar5.style.width = progress + '%';
-}
 
 // JavaScript code for Spin Image on Click with Inertia
 
@@ -132,7 +118,7 @@ function LEDupgrade(){
         count -= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]
         updateCount(0);
         multiplier += ((kimmeridge.ledBulbLevel + 1) / 12.5);
-        updateProgress1((kimmeridge.ledBulbLevel*5)+5);
+        updateProgress((kimmeridge.ledBulbLevel*5)+5, "progress1");
         kimmeridge.ledBulbLevel += 1 
         updateUpgradeText(1, kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1])
 

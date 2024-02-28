@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.progress-bar1 {
+.progress-bar1,.progress-bar2,.progress-bar3,.progress-bar4,.progress-bar5 {
     width: 80%;
     height: 20px;
     border: 1px solid #000;
@@ -11,50 +11,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-.progress-bar2 {
-    width: 80%;
-    height: 20px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-    margin-bottom: 20px; 
-    overflow: hidden; 
-    border-radius: 5px; 
-    margin-left: auto;
-    margin-right: auto;
-}
-.progress-bar3 {
-    width: 80%;
-    height: 20px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-    margin-bottom: 20px; 
-    overflow: hidden; 
-    border-radius: 5px; 
-    margin-left: auto;
-    margin-right: auto;
-}
-.progress-bar4 {
-        width: 80%;
-        height: 20px;
-        border: 1px solid #000;
-        margin-bottom: 10px;
-        margin-bottom: 20px; 
-        overflow: hidden; 
-        border-radius: 5px; 
-        margin-left: auto;
-        margin-right: auto;
-}
-.progress-bar5 {
-    width: 80%;
-    height: 20px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-    margin-bottom: 20px; 
-    overflow: hidden; 
-    border-radius: 5px; 
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .progress {
     width: 0%;
     height: 100%;
@@ -156,11 +113,11 @@ body{
     overflow: hidden;
 }
   
-#upgrade-box {
+.upgrade-box {
     border: 5px solid black; 
     padding: 10px; 
     display: inline-block; 
-    background-color: #8c5d3b;
+    background: firebrick;
     margin-top: 0;
     min-width: 95%;
 }
@@ -199,4 +156,8 @@ body{
 
 .campus-image{
     height: 100vh;
+}
+
+.upgrade-bio{
+    font-size: 7.5px;
 }
