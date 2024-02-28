@@ -89,12 +89,11 @@ section{
     background-color: #f0f0f0;
 }
 
-.map{
+/* .map{
     width: 0;
     flex-grow: 10;
     height:100vh;
-    overflow: scroll;
-}
+} */
 
 .clicker{
     position: relative;
@@ -187,4 +186,11 @@ body{
         text-overflow: ellipsis; 
     }
     
+}
+
+#image-container {
+    overflow: hidden; /* Ensure this matches your design needs */
+    cursor: grab; /* Cursor appearance when hovering */
+    width: 300px;
+    height: 300px;
 }
