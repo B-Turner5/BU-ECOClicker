@@ -68,10 +68,10 @@ function sendClick(){
         contentType: "application/json",
         data: JSON.stringify({}),
         success: function(response) {
-            console.log("Function in page 2 called successfully.");
+            console.log("Click Sent Successfully.");
         },
         error: function(xhr, status, error) {
-            console.error("Error calling function in page 2:", error);
+            console.error("Error sending click:", error);
         }
     })
 }

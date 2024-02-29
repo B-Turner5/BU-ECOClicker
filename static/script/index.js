@@ -1,4 +1,4 @@
-let count = 0;
+let count = 1000000;
 let multiplier = 1;
 let cps = 1
 
@@ -8,7 +8,7 @@ class Building {
         this.ledBulbLevel = led
         this.ledBulbPrices = [0, 25, 30, 35, 40, 45, 50, 60, 75, 100, 125, 150, 175, 200, 250, 300, 350, 500, 600, 700, 1200]
         this.solarPanelLevel = solar
-        this.solarPanelPrice = [2500, 3000, 3500, 4000, 4500, 5000, 6000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 35000, 50000, 60000, 70000, 120000]
+        this.solarPanelPrice = [0, 2500, 3000, 3500, 4000, 4500, 5000, 6000, 7500, 10000, 12500, 15000, 17500, 20000, 25000, 30000, 35000, 50000, 60000, 70000, 120000]
         this.boilerUpgrade = boiler
         this.boilerPrice = 15000
         this.groundSourceHeatPumpsUpgrade = gshp
@@ -34,7 +34,6 @@ function incrementNumber() {
 }
 
 function updateCount(amount) {
-    count += amount * count; 
     countContainer.innerHTML = "£" + count.toFixed(2);
 }
 
@@ -111,47 +110,68 @@ async function swapBlades() {
 
 setInterval(incrementNumber, 1000);
 
-function LEDupgrade(){
-    if (kimmeridge.ledBulbLevel == 20){
+function LEDupgrade(building){
+    if (building.ledBulbLevel == 20){
         maxLevel(1);
-    } else if (count >= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]) {
-        count -= kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1]
+    } else if (count >= building.ledBulbPrices[building.ledBulbLevel+1]) {
+        count -= building.ledBulbPrices[building.ledBulbLevel+1]
         updateCount(0);
-        multiplier += ((kimmeridge.ledBulbLevel + 1) / 12.5);
-        updateProgress((kimmeridge.ledBulbLevel*5)+5, "progress1");
-        kimmeridge.ledBulbLevel += 1 
-        updateUpgradeText(1, kimmeridge.ledBulbPrices[kimmeridge.ledBulbLevel+1])
-
+        multiplier += ((building.ledBulbLevel + 1) / 12.5);
+        updateProgress((building.ledBulbLevel*5)+5, "progress1");
+        building.ledBulbLevel += 1 
+        if (building.ledBulbLevel == 20) {
+            box = document.getElementById("upgrade1")
+            box.innerHTML = `LED Light Upgrade: MAX`
+        } else{
+            updateUpgradeText(1, building.ledBulbPrices[building.ledBulbLevel+1])
+        }
     }
     else {
         insufficientFunds(1);
     }    
 };
 
-function SolarUpgrade(){
-    if (count >= 10) {
-        count -= 5;
-        updateCount(0); 
-        multiplier = 2;
-        updateProgress2(100);
-    } else {
+function SolarUpgrade(building){
+    if (building.solarPanelLevel == 20){
+        maxLevel(2);
+    } else if (count >= building.solarPanelPrice[building.solarPanelLevel+1]) {
+        count -= building.solarPanelPrice[building.solarPanelLevel+1]
+        updateCount(0);
+        multiplier += ((building.solarPanelLevel + 1) / 1.25);
+        updateProgress((building.solarPanelLevel*5)+5, "progress2");
+        building.solarPanelLevel += 1
+        if (building.solarPanelLevel == 20) {
+            box = document.getElementById("upgrade2")
+            box.innerHTML = `Solar Panel Upgrade: MAX`
+        } else{
+            updateUpgradeText(2, building.solarPanelPrice[building.solarPanelLevel+1])
+        }
+        
+    }
+    else {
         insufficientFunds(2);
-    }
-    
-};
-function BoilerUpgrade(){
-    if (count >= 10) {
-        count -= 5;
-        updateCount(0); 
-        multiplier = 2;
-        updateProgress3(100);
-    } else {
-        insufficientFunds(3);
-    }
-    
+    }    
 };
 
-function InsulationUpgrade(){
+function BoilerUpgrade(building){
+    if (building.boilerUpgrade == True){
+        
+    }
+};
+
+function GroundSourceHeatPumpsUpgrade(building){
+    if (count >= 10) {
+        count -= 5;
+        updateCount(0); 
+        multiplier = 2;
+        updateProgress4(100);
+    } else {
+        insufficientFunds(4);
+    }
+
+};
+
+function InsulationUpgrade(building){
     if (count >= 10) {
         count -= 5;
         updateCount(0); 
@@ -188,7 +208,17 @@ async function maxLevel(id){
 
 async function updateUpgradeText(id, price){
     const box = document.getElementById("upgrade" + id)
-    box.innerHTML = `LED Lightbulb Upgrade: £${price}`
+    if (id = 1){
+        box.innerHTML = `LED Lightbulb Upgrade: £${price}`
+    } else if (id=2){
+        box.innerHTML = `Solar Panel Upgrade: £${price}`
+    } else if (id=3){
+        box.innerHTML = `Boiler Upgrade: £${price}`
+    } else if (id=4){
+        box.innerHTML = `Ground Source Heat Pump Upgrade: £${price}`
+    } else{
+        box.innerHTML = `Insulation Upgrade: £${price}`
+    }
 }
 
 // Grab the image container
@@ -236,3 +266,16 @@ async function detectMobileInput(){
 
 // Polling rate is currently set at 100ms.
 setInterval(detectMobileInput, 100)
+
+function updateStats(building){
+    updateProgress((building.ledBulbLevel*5), "progress1");
+    updateUpgradeText(1, building.ledBulbPrices[building.ledBulbLevel])
+    updateProgress((building.solarPanelLevelBulbLevel*5), "progress2");
+    updateUpgradeText(2, building.ledBulbPrices[building.ledBulbLevel])
+    updateProgress((building.ledBulbLevel*5), "progress3");
+    updateUpgradeText(3, building.ledBulbPrices[building.ledBulbLevel])
+    updateProgress((building.ledBulbLevel*5), "progress4");
+    updateUpgradeText(4, building.ledBulbPrices[building.ledBulbLevel])
+    updateProgress((building.ledBulbLevel*5), "progress5");
+    updateUpgradeText(5, building.ledBulbPrices[building.ledBulbLevel])
+}
