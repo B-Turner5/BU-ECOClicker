@@ -196,7 +196,7 @@ function InsulationUpgrade(building){
     else if (count >= building.boilerPrice){
         count -= building.boilerPrice
         updateCount();
-        multiplier += 150
+        multiplier += 1200
         updateProgress(100, "progress3")
         building.boilerUpgrade = true
         box = document.getElementById("upgrade3")
