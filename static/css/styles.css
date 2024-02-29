@@ -37,6 +37,7 @@ section{
 }
 
 .upgrades{
+    
     overflow: hidden;
     width: 0;
     flex-grow: 3;
@@ -46,13 +47,9 @@ section{
 }
 
 .map{
-    overflow: hidden;
     width: 0;
     flex-grow: 10;
-    position: sticky;
-    display: block;
-    height: 100vh;
-    position: relative;
+    height:100vh;
 }
 
 .clicker{
@@ -151,10 +148,9 @@ body{
 }
 
 #image-container {
-    overflow: hidden;
-    cursor: grab;
-    user-select: none;
-} 
+    overflow: hidden; /* Ensure this matches your design needs */
+    cursor: grab; /* Cursor appearance when hovering */
+}
 
 .campus-image{
     height: 100vh;
