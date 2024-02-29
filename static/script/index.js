@@ -1,4 +1,4 @@
-let count = 1000000;
+let count = 0;
 let multiplier = 1;
 let cps = 1
 
@@ -349,19 +349,52 @@ function Kimmeridge(){
     updateStats(kimmeridge)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Kimmeridge House Sustainability Upgrades"
+    image1 = document.getElementById('kimmeridge')
+    image2 = document.getElementById('dorset')
+    image3 = document.getElementById('fusion')
+    image4 = document.getElementById('pgb')
+    image1.src = `static/assets/Kimmeridge Outline.png`
+    image2.src = `static/assets/Dorset.png`
+    image3.src = `static/assets/Fusion.png`
+    image4.src = `static/assets/PGB.png`
+
 }
 function Dorset(){
     updateStats(dorset)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Dorset House Sustainability Upgrades"
+    image1 = document.getElementById('kimmeridge')
+    image2 = document.getElementById('dorset')
+    image3 = document.getElementById('fusion')
+    image4 = document.getElementById('pgb')
+    image1.src = `static/assets/Kimmeridge.png`
+    image2.src = `static/assets/Dorset Outline.png`
+    image3.src = `static/assets/Fusion.png`
+    image4.src = `static/assets/PGB.png`
 }
 function Fusion(){
     updateStats(fusion)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Fusion Building Sustainability Upgrades"
+    image1 = document.getElementById('kimmeridge')
+    image2 = document.getElementById('dorset')
+    image3 = document.getElementById('fusion')
+    image4 = document.getElementById('pgb')
+    image1.src = `static/assets/Kimmeridge.png`
+    image2.src = `static/assets/Dorset.png`
+    image3.src = `static/assets/Fusion Outline.png`
+    image4.src = `static/assets/PGB.png`
 }
 function PGB(){
     updateStats(pgb)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Poole Gateway Building Sustainability Upgrades"
+    image1 = document.getElementById('kimmeridge')
+    image2 = document.getElementById('dorset')
+    image3 = document.getElementById('fusion')
+    image4 = document.getElementById('pgb')
+    image1.src = `static/assets/Kimmeridge.png`
+    image2.src = `static/assets/Dorset.png`
+    image3.src = `static/assets/Fusion.png`
+    image4.src = `static/assets/PGB Outline.png`
 }
