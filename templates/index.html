@@ -22,6 +22,7 @@
     
             <article class="map">
                 <div id="image-container">
+                    <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}">
                     <img src="{{ url_for('static', filename='assets/Campus.png')}}" alt="University Campus Map, a placeholder." class="campus-image">
                 </div>
             </article>
@@ -58,17 +59,17 @@
                     </div>
 
                     <div class="upgrade-box">
-                        <button id="upgrade5" class="upgrade" name="GSHP-upgrade" onclick="GSHPUpgrade(kimmeridge)">Ground Source Heat Pump Upgrade: £50,000</button>
-                        <div class="progress-bar5">
-                            <div id="progress5" class="progress"></div>
+                        <button id="upgrade4" class="upgrade" name="GSHP-upgrade" onclick="GroundSourceHeatPumpsUpgrade(kimmeridge)">Ground Source Heat Pump Upgrade: £50,000</button>
+                        <div class="progress-bar4">
+                            <div id="progress4" class="progress"></div>
                         </div>
                         <h1 class="bio" id="bio">This upgrade will save the uni 10% of its gas usage per year</h1>
                     </div>
 
                     <div class="upgrade-box">
-                        <button id="upgrade4" class="upgrade" name="insulation-upgrade" onclick="InsulationUpgrade(kimmeridge)">Insulation Upgrade: £120,000</button>
-                        <div class="progress-bar4"> 
-                            <div id="progress4" class="progress"></div>
+                        <button id="upgrade5" class="upgrade" name="insulation-upgrade" onclick="InsulationUpgrade(kimmeridge)">Insulation Upgrade: £120,000</button>
+                        <div class="progress-bar5"> 
+                            <div id="progress5" class="progress"></div>
                         </div>
                         <h1 class="bio" id="bio">This upgrade will save the uni 5% of its gas usage per year</h1>
                     </div>
