@@ -22,8 +22,10 @@
     
             <article class="map">
                 <div id="image-container">
-                    <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}">
-                    <img src="{{ url_for('static', filename='assets/Campus.png')}}" alt="University Campus Map, a placeholder." class="campus-image">
+                    <div>
+                        <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}" style="position: absolute;">
+                        <img src="{{ url_for('static', filename='assets/Campus.png')}}" alt="University Campus Map, a placeholder." class="campus-image">
+                    </div>
                 </div>
             </article>
     

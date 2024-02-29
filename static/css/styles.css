@@ -52,6 +52,7 @@ section{
     position: sticky;
     display: block;
     height: 100vh;
+    position: relative;
 }
 
 .clicker{
