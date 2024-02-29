@@ -118,7 +118,7 @@ body{
     border: 5px solid black; 
     padding: 10px; 
     display: inline-block; 
-    background: #633444;
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/073/239/192/large/matthew-immm-image-for-title-background.jpg?1709210864');
     margin-top: 0;
     min-width: 95%;
     min-height: 100%;
@@ -133,13 +133,24 @@ body{
 .upgrade{
     font-size: 18px;
     font-family: "Press Start 2P", sans-serif;
+    
 }
 
-#Upgrade-tab{
+#Upgrade-tab {
     font-size: 25px;
-    background-image: url('https://cdnb.artstation.com/p/assets/images/images/004/682/457/large/simon-sanchez-madera-tilex1.jpg?1485480359');
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/073/239/346/small/matthew-immm-pixil-frame-0-32.jpg?1709211090');
+    background-size: 80%; /* Adjust the value to zoom out the background image */
+    background-position: center center; /* Center the background image */
+    background-repeat: repeat; /* Ensure the background image is not repeated */
     text-align: center;
+    text-shadow: 
+        -1px -1px 0 white,  
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white;
 }
+
+
 
 #upgradeable-building{
     max-width: calc(100% - 20px); 
@@ -158,8 +169,10 @@ body{
 .upgrade-bio{
     font-size: 7.5px;
     color: white;
+    text-shadow: none;
 }
 
 .bio{
     color: white;
+    text-shadow: none;
 }
