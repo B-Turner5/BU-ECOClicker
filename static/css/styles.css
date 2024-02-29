@@ -158,4 +158,9 @@ body{
 
 .upgrade-bio{
     font-size: 7.5px;
+    color: white;
+}
+
+.bio{
+    color: white;
 }

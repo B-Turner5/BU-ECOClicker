@@ -33,7 +33,7 @@ function incrementNumber() {
     countContainer.innerHTML = "£" + count.toFixed(2)
 }
 
-function updateCount(amount) {
+function updateCount() {
     countContainer.innerHTML = "£" + count.toFixed(2);
 }
 
@@ -115,7 +115,7 @@ function LEDupgrade(building){
         maxLevel(1);
     } else if (count >= building.ledBulbPrices[building.ledBulbLevel+1]) {
         count -= building.ledBulbPrices[building.ledBulbLevel+1]
-        updateCount(0);
+        updateCount();
         multiplier += ((building.ledBulbLevel + 1) / 12.5);
         updateProgress((building.ledBulbLevel*5)+5, "progress1");
         building.ledBulbLevel += 1 
@@ -136,7 +136,7 @@ function SolarUpgrade(building){
         maxLevel(2);
     } else if (count >= building.solarPanelPrice[building.solarPanelLevel+1]) {
         count -= building.solarPanelPrice[building.solarPanelLevel+1]
-        updateCount(0);
+        updateCount();
         multiplier += ((building.solarPanelLevel + 1) / 1.25);
         updateProgress((building.solarPanelLevel*5)+5, "progress2");
         building.solarPanelLevel += 1
@@ -154,37 +154,62 @@ function SolarUpgrade(building){
 };
 
 function BoilerUpgrade(building){
-    if (building.boilerUpgrade == True){
-        
+    if (building.boilerUpgrade == true){
+        alreadyUpgraded(3)
     }
+    else if (count >= building.boilerPrice){
+        count -= building.boilerPrice
+        updateCount();
+        multiplier += 150
+        updateProgress(100, "progress3")
+        building.boilerUpgrade = true
+        box = document.getElementById("upgrade3")
+        box.innerHTML = 'More Efficienct Boiler Upgrade: Already Upgraded'
+    } else{
+        insufficientFunds(3);
+    }
+
 };
 
 function GroundSourceHeatPumpsUpgrade(building){
-    if (count >= 10) {
-        count -= 5;
-        updateCount(0); 
-        multiplier = 2;
-        updateProgress4(100);
-    } else {
+    if (building.groundSourceHeatPumpsUpgrade == true){
+        alreadyUpgraded(4)
+    }
+    else if (count >= building.groundSourceHeatPumpsPrice){
+        count -= building.groundSourceHeatPumpsPrice
+        updateCount();
+        multiplier += 500
+        updateProgress(100, "progress4")
+        building.groundSourceHeatPumpsUpgrade = true
+        box = document.getElementById("upgrade4")
+        box.innerHTML = 'Ground Source Heat Pump Upgrade: Already Upgraded'
+    } else{
         insufficientFunds(4);
     }
 
 };
 
 function InsulationUpgrade(building){
-    if (count >= 10) {
-        count -= 5;
-        updateCount(0); 
-        multiplier = 2;
-        updateProgress4(100);
-    } else {
-        insufficientFunds(4);
+    if (building.boilerUpgrade == true){
+        alreadyUpgraded(3)
+    }
+    else if (count >= building.boilerPrice){
+        count -= building.boilerPrice
+        updateCount();
+        multiplier += 150
+        updateProgress(100, "progress3")
+        building.boilerUpgrade = true
+        box = document.getElementById("upgrade3")
+        box.innerHTML = 'More Efficienct Boiler Upgrade: Already Upgraded'
+    } else{
+        insufficientFunds(3);
     }
     
 };
 
 const tempFunds = {};
 const tempLevel = {};
+const tempUpgrade = {};
 
 async function insufficientFunds(id){
     const box = document.getElementById("upgrade" + id)
@@ -206,15 +231,25 @@ async function maxLevel(id){
     box.innerHTML = tempLevel[id-1]
 };
 
+async function alreadyUpgraded(id){
+    const box = document.getElementById("upgrade" + id)
+    if (!tempUpgrade[id-3]) {
+        tempLevel[id-3] = box.innerHTML;
+    }
+    box.innerHTML = "Already Upgraded."
+    await sleep(500)
+    box.innerHTML = tempLevel[id-3]
+}
+
 async function updateUpgradeText(id, price){
     const box = document.getElementById("upgrade" + id)
-    if (id = 1){
+    if (id == 1){
         box.innerHTML = `LED Lightbulb Upgrade: £${price}`
-    } else if (id=2){
+    } else if (id==2){
         box.innerHTML = `Solar Panel Upgrade: £${price}`
-    } else if (id=3){
+    } else if (id==3){
         box.innerHTML = `Boiler Upgrade: £${price}`
-    } else if (id=4){
+    } else if (id==4){
         box.innerHTML = `Ground Source Heat Pump Upgrade: £${price}`
     } else{
         box.innerHTML = `Insulation Upgrade: £${price}`
