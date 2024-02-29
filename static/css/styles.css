@@ -12,6 +12,35 @@
     margin-right: auto;
 }
 
+.kimmeridge{
+    position: absolute;
+    margin-left: 60vw;
+    margin-top: 40vh;
+    zoom: 40%;
+    cursor: pointer;
+}
+.dorset{
+    position: absolute;
+    margin-left: 50vw;
+    margin-top: 25vh;
+    zoom: 60%;
+    cursor: pointer;
+}
+.fusion{
+    position: absolute;
+    margin-left: 88vw;
+    margin-top: 90vh;
+    zoom: 50%;
+    cursor: pointer;
+}
+.pgb{
+    position: absolute;
+    margin-left: 88vw;
+    margin-top: 50vh;
+    zoom: 75%;
+    cursor: pointer;
+}
+
 .progress {
     width: 0%;
     height: 100%;
@@ -37,7 +66,6 @@ section{
 }
 
 .upgrades{
-    
     overflow: hidden;
     width: 0;
     flex-grow: 3;
@@ -150,6 +178,8 @@ body{
 #image-container {
     overflow: hidden; /* Ensure this matches your design needs */
     cursor: grab; /* Cursor appearance when hovering */
+    margin-left: -25vw;
+    zoom: 90%
 }
 
 .campus-image{
