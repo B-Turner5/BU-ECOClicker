@@ -190,19 +190,19 @@ function GroundSourceHeatPumpsUpgrade(building){
 };
 
 function InsulationUpgrade(building){
-    if (building.boilerUpgrade == true){
-        alreadyUpgraded(3)
+    if (building.insulationUpgrade == true){
+        alreadyUpgraded(5)
     }
-    else if (count >= building.boilerPrice){
-        count -= building.boilerPrice
+    else if (count >= building.insulationPrice){
+        count -= building.insulationPrice
         updateCount();
         multiplier += 1200
-        updateProgress(100, "progress3")
-        building.boilerUpgrade = true
-        box = document.getElementById("upgrade3")
+        updateProgress(100, "progress5")
+        building.insulationUpgrade = true
+        box = document.getElementById("upgrade5")
         box.innerHTML = 'More Efficienct Boiler Upgrade: Already Upgraded'
     } else{
-        insufficientFunds(3);
+        insufficientFunds(5);
     }
     
 };

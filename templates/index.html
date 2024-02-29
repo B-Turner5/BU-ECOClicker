@@ -22,7 +22,13 @@
     
             <article class="map">
                 <div id="image-container">
-                    <img src="{{ url_for('static', filename='assets/Campus.png')}}" alt="University Campus Map, a placeholder." class="campus-image">
+                    <div>
+                        <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}" class="kimmeridge">
+                        <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}" class="dorset">
+                        <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}" class="fusion">
+                        <img src="{{ url_for('static', filename='assets/TurbineBase.png')}}" class="pgb">
+                        <img src="{{ url_for('static', filename='assets/Campus.png')}}" alt="University Campus Map, a placeholder." class="campus-image">
+                    </div>
                 </div>
             </article>
     
@@ -60,18 +66,18 @@
                     </div>
 
                     <div class="upgrade-box">
-                        <button id="upgrade5" class="upgrade" name="GSHP-upgrade" onclick="GSHPUpgrade(kimmeridge)">Ground Source Heat Pump Upgrade: £50,000</button>
-                        <div class="progress-bar5">
-                            <div id="progress5" class="progress"></div>
+                        <button id="upgrade4" class="upgrade" name="GSHP-upgrade" onclick="GroundSourceHeatPumpsUpgrade(kimmeridge)">Ground Source Heat Pump Upgrade: £50,000</button>
+                        <div class="progress-bar4">
+                            <div id="progress4" class="progress"></div>
                         </div>
                         <h1 class="bio" id="bio">This upgrade will save the uni 10% of its gas usage per year</h1>
                         <h2 class = "upgrade-bio">Note: This upgrade will increase the money by 500% once purchased.</h2>
                     </div>
 
                     <div class="upgrade-box">
-                        <button id="upgrade4" class="upgrade" name="insulation-upgrade" onclick="InsulationUpgrade(kimmeridge)">Insulation Upgrade: £120,000</button>
-                        <div class="progress-bar4"> 
-                            <div id="progress4" class="progress"></div>
+                        <button id="upgrade5" class="upgrade" name="insulation-upgrade" onclick="InsulationUpgrade(kimmeridge)">Insulation Upgrade: £120,000</button>
+                        <div class="progress-bar5"> 
+                            <div id="progress5" class="progress"></div>
                         </div>
                         <h1 class="bio" id="bio">This upgrade will save the uni 5% of its gas usage per year</h1>
                         <h2 class = "upgrade-bio">Note: This upgrade will increase the money by 1200% once purchased.</h2>
