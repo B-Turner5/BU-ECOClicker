@@ -44,6 +44,7 @@ section{
     height: 100vh;
     width: 10%; 
     background-color: #f0f0f0;
+    min-height: 100%;
 }
 
 .map{
@@ -120,6 +121,7 @@ body{
     background: #633444;
     margin-top: 0;
     min-width: 95%;
+    min-height: 100%;
 }
 
 #bio{
@@ -141,9 +143,6 @@ body{
 
 #upgradeable-building{
     max-width: calc(100% - 20px); 
-    overflow: hidden; 
-    white-space: nowrap; 
-    text-overflow: ellipsis; 
     
 }
 
