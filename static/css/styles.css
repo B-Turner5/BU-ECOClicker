@@ -168,7 +168,7 @@ body{
 
 #Upgrade-tab {
     font-size: 25px;
-    background-image: url('https://cdna.artstation.com/p/assets/images/images/073/239/346/small/matthew-immm-pixil-frame-0-32.jpg?1709211090');
+    background-color:  #5C4033;
     background-size: 80%; /* Adjust the value to zoom out the background image */
     background-position: center center; /* Center the background image */
     background-repeat: repeat; /* Ensure the background image is not repeated */
