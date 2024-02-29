@@ -2,6 +2,8 @@ let count = 0;
 let multiplier = 1;
 let cps = 1
 
+var building
+
 // Defining progress for each thingy.
 class Building {
     constructor(led, solar, boiler, gshp, insulation) {
@@ -110,7 +112,7 @@ async function swapBlades() {
 
 setInterval(incrementNumber, 1000);
 
-function LEDupgrade(building){
+function LEDupgrade(){
     if (building.ledBulbLevel == 20){
         maxLevel(1);
     } else if (count >= building.ledBulbPrices[building.ledBulbLevel+1]) {
@@ -131,7 +133,7 @@ function LEDupgrade(building){
     }    
 };
 
-function SolarUpgrade(building){
+function SolarUpgrade(){
     if (building.solarPanelLevel == 20){
         maxLevel(2);
     } else if (count >= building.solarPanelPrice[building.solarPanelLevel+1]) {
@@ -153,7 +155,7 @@ function SolarUpgrade(building){
     }    
 };
 
-function BoilerUpgrade(building){
+function BoilerUpgrade(){
     if (building.boilerUpgrade == true){
         alreadyUpgraded(3)
     }
@@ -171,7 +173,7 @@ function BoilerUpgrade(building){
 
 };
 
-function GroundSourceHeatPumpsUpgrade(building){
+function GroundSourceHeatPumpsUpgrade(){
     if (building.groundSourceHeatPumpsUpgrade == true){
         alreadyUpgraded(4)
     }
@@ -189,7 +191,7 @@ function GroundSourceHeatPumpsUpgrade(building){
 
 };
 
-function InsulationUpgrade(building){
+function InsulationUpgrade(){
     if (building.insulationUpgrade == true){
         alreadyUpgraded(5)
     }
@@ -308,8 +310,9 @@ function updateStats(building){
         box.innerHTML = `LED Light Upgrade: MAX`
         updateProgress(100, "progress1")
     } else{
+        console.log(building)
         updateProgress((building.ledBulbLevel*5), "progress1");
-        updateUpgradeText(1, building.ledBulbPrices[building.ledBulbLevel])
+        updateUpgradeText(1, building.ledBulbPrices[building.ledBulbLevel + 1])
     }
     if (building.solarPanelLevel == 20){
         box = document.getElementById("upgrade2")
@@ -317,7 +320,7 @@ function updateStats(building){
         updateProgress(100, "progress2")
     } else{
         updateProgress((building.solarPanelLevel*5), "progress2");
-        updateUpgradeText(2, building.solarPanelPrice[building.solarPanelLevel])
+        updateUpgradeText(2, building.solarPanelPrice[building.solarPanelLevel  + 1])
     }
     if (building.BoilerUpgrade == true){
         box = document.getElementById("upgrade3")
@@ -346,6 +349,7 @@ function updateStats(building){
 }
 
 function Kimmeridge(){
+    building = kimmeridge
     updateStats(kimmeridge)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Kimmeridge House Sustainability Upgrades"
@@ -360,6 +364,7 @@ function Kimmeridge(){
 
 }
 function Dorset(){
+    building = dorset
     updateStats(dorset)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Dorset House Sustainability Upgrades"
@@ -373,6 +378,7 @@ function Dorset(){
     image4.src = `static/assets/PGB.png`
 }
 function Fusion(){
+    building = fusion
     updateStats(fusion)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Fusion Building Sustainability Upgrades"
@@ -386,6 +392,7 @@ function Fusion(){
     image4.src = `static/assets/PGB.png`
 }
 function PGB(){
+    building = pgb
     updateStats(pgb)
     title = document.getElementById('upgradeable-building')
     title.innerHTML = "Poole Gateway Building Sustainability Upgrades"
