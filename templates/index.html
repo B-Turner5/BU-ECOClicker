@@ -23,10 +23,10 @@
             <article class="map">
                 <div id="image-container">
                     <div>
-                        <img src="{{ url_for('static', filename='assets/Kimmeridge.png')}}" class="kimmeridge">
-                        <img src="{{ url_for('static', filename='assets/Dorset.png')}}" class="dorset">
-                        <img src="{{ url_for('static', filename='assets/Fusion.png')}}" class="fusion">
-                        <img src="{{ url_for('static', filename='assets/PGB.png')}}" class="pgb">
+                        <img src="{{ url_for('static', filename='assets/Kimmeridge.png')}}" class="kimmeridge" onclick="Kimmeridge()">
+                        <img src="{{ url_for('static', filename='assets/Dorset.png')}}" class="dorset" onclick="Dorset()">
+                        <img src="{{ url_for('static', filename='assets/Fusion.png')}}" class="fusion" onclick="Fusion()">
+                        <img src="{{ url_for('static', filename='assets/PGB.png')}}" class="pgb" onclick="PGB()">
                         <img src="{{ url_for('static', filename='assets/Campus.png')}}" alt="University Campus Map, a placeholder." class="campus-image">
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                 <div id="upgrade-tab">
     
                     <div id="Kimmeridge Building">
-                        <h1 id="upgradeable-building">Kimmeridge Building sustainability upgrades</h1>    
+                        <h1 id="upgradeable-building">Kimmeridge House Sustainability Upgrades</h1>    
                     </div>
                     <div class="upgrade-box">
                         <button id="upgrade1" class="upgrade" name="LED-upgrade" onclick="LEDupgrade(kimmeridge)">LED Light Upgrade: £25</button>

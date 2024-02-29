@@ -15,28 +15,28 @@
 
 .kimmeridge{
     position: absolute;
-    margin-left: 60vw;
-    margin-top: 40vh;
-    zoom: 40%;
+    margin-left: 0vw;
+    margin-top: 35vh;
+    zoom: 45%;
     cursor: pointer;
 }
 .dorset{
     position: absolute;
-    margin-left: 50vw;
-    margin-top: 25vh;
+    margin-left: 14vw;
+    margin-top: 33vh;
     zoom: 60%;
     cursor: pointer;
 }
 .fusion{
     position: absolute;
-    margin-left: 88vw;
-    margin-top: 90vh;
-    zoom: 50%;
+    margin-left: 43vw;
+    margin-top: 80vh;
+    zoom: 55%;
     cursor: pointer;
 }
 .pgb{
     position: absolute;
-    margin-left: 88vw;
+    margin-left: 68vw;
     margin-top: 50vh;
     zoom: 75%;
     cursor: pointer;
@@ -80,6 +80,7 @@ section{
     width: 0;
     flex-grow: 10;
     height:100vh;
+    background-color: #658d78;
 }
 
 .clicker{
@@ -189,8 +190,7 @@ body{
 #image-container {
     overflow: hidden; /* Ensure this matches your design needs */
     cursor: grab; /* Cursor appearance when hovering */
-    margin-left: -25vw;
-    zoom: 90%
+    zoom:78%
 }
 
 .campus-image{

@@ -200,7 +200,7 @@ function InsulationUpgrade(building){
         updateProgress(100, "progress5")
         building.insulationUpgrade = true
         box = document.getElementById("upgrade5")
-        box.innerHTML = 'More Efficienct Boiler Upgrade: Already Upgraded'
+        box.innerHTML = 'Insulation Upgrade: Already Upgraded'
     } else{
         insufficientFunds(5);
     }
@@ -303,14 +303,65 @@ async function detectMobileInput(){
 setInterval(detectMobileInput, 100)
 
 function updateStats(building){
-    updateProgress((building.ledBulbLevel*5), "progress1");
-    updateUpgradeText(1, building.ledBulbPrices[building.ledBulbLevel])
-    updateProgress((building.solarPanelLevelBulbLevel*5), "progress2");
-    updateUpgradeText(2, building.ledBulbPrices[building.ledBulbLevel])
-    updateProgress((building.ledBulbLevel*5), "progress3");
-    updateUpgradeText(3, building.ledBulbPrices[building.ledBulbLevel])
-    updateProgress((building.ledBulbLevel*5), "progress4");
-    updateUpgradeText(4, building.ledBulbPrices[building.ledBulbLevel])
-    updateProgress((building.ledBulbLevel*5), "progress5");
-    updateUpgradeText(5, building.ledBulbPrices[building.ledBulbLevel])
+    if (building.ledBulbLevel == 20){
+        box = document.getElementById("upgrade1")
+        box.innerHTML = `LED Light Upgrade: MAX`
+        updateProgress(100, "progress1")
+    } else{
+        updateProgress((building.ledBulbLevel*5), "progress1");
+        updateUpgradeText(1, building.ledBulbPrices[building.ledBulbLevel])
+    }
+    if (building.solarPanelLevel == 20){
+        box = document.getElementById("upgrade2")
+        box.innerHTML = `Solar Panel Upgrade: MAX`
+        updateProgress(100, "progress2")
+    } else{
+        updateProgress((building.solarPanelLevel*5), "progress2");
+        updateUpgradeText(2, building.solarPanelPrice[building.solarPanelLevel])
+    }
+    if (building.BoilerUpgrade == true){
+        box = document.getElementById("upgrade3")
+        box.innerHTML = 'More Efficienct Boiler Upgrade: Already Upgraded'
+        updateProgress(100, "progress3");
+    } else{
+        updateUpgradeText(3, building.boilerPrice)
+        updateProgress(0, "progress3");
+    }
+    if (building.groundSourceHeatPumpsUpgrade == true){
+        box = document.getElementById("upgrade4")
+        box.innerHTML = 'Ground Source Heat Pump Upgrade: Already Upgraded'
+        updateProgress(100, "progress4");
+    } else{
+        updateUpgradeText(4, building.groundSourceHeatPumpsPrice)
+        updateProgress(0, "progress4");
+    }
+    if (building.insulationUpgrade == true){
+        box = document.getElementById("upgrade5")
+        box.innerHTML = 'Insulation Upgrade: Already Upgraded'
+        updateProgress(100, "progress5");
+    } else{
+        updateUpgradeText(5, building.insulationPrice)
+        updateProgress(0, "progress5")
+    } 
+}
+
+function Kimmeridge(){
+    updateStats(kimmeridge)
+    title = document.getElementById('upgradeable-building')
+    title.innerHTML = "Kimmeridge House Sustainability Upgrades"
+}
+function Dorset(){
+    updateStats(dorset)
+    title = document.getElementById('upgradeable-building')
+    title.innerHTML = "Dorset House Sustainability Upgrades"
+}
+function Fusion(){
+    updateStats(fusion)
+    title = document.getElementById('upgradeable-building')
+    title.innerHTML = "Fusion Building Sustainability Upgrades"
+}
+function PGB(){
+    updateStats(pgb)
+    title = document.getElementById('upgradeable-building')
+    title.innerHTML = "Poole Gateway Building Sustainability Upgrades"
 }
