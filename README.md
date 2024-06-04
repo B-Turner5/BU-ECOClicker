@@ -9,7 +9,7 @@ python -m venv .venv
 ```
 Then, activate it.
 ```
-\.venv\Scripts\activate
+.\.venv\Scripts\activate
 ```
 
 Next, install the packages in the virtual environment.
